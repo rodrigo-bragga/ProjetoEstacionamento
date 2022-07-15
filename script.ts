@@ -57,15 +57,16 @@ interface Veiculo{
 
         function render(){
             $("#patio")!.innerHTML = "";
-            const patioo = ler();
+            const patio = ler();
 
-            if(patioo.length){
-                patioo.forEach((veiculo => adicionar(veiculo)));
+            if(patio.length){
+                patio.forEach((veiculo => adicionar(veiculo)));
             }
         }
 
         return {ler, adicionar,remover, salvar, render}
     }
+    
     patio().render();
     $("#cadastrar")?.addEventListener("click", () => {
         const nome = $("#nome")?.value;
@@ -73,8 +74,8 @@ interface Veiculo{
 
         if(!nome || !placa){
             alert("OS campos nome e placa são obrigatórios")
-        }
-
+        } else {
         patio().adicionar({nome, placa, entrada: new Date().toISOString()}, true)
+        }
     });
 } )();

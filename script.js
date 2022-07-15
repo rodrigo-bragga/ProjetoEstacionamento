@@ -4,7 +4,7 @@
     function calcTempo(mil) {
         const min = Math.floor(mil / 60000);
         const sec = Math.floor((mil % 60000) / 1000);
-        return `${min}m e ${sec}s`;
+        return `${min} minutos e ${sec} segundos`;
     }
     function patio() {
         function ler() {
@@ -42,9 +42,9 @@
         }
         function render() {
             $("#patio").innerHTML = "";
-            const patioo = ler();
-            if (patioo.length) {
-                patioo.forEach((veiculo => adicionar(veiculo)));
+            const patio = ler();
+            if (patio.length) {
+                patio.forEach((veiculo => adicionar(veiculo)));
             }
         }
         return { ler, adicionar, remover, salvar, render };
@@ -57,6 +57,8 @@
         if (!nome || !placa) {
             alert("OS campos nome e placa são obrigatórios");
         }
-        patio().adicionar({ nome, placa, entrada: new Date().toISOString() }, true);
+        else {
+            patio().adicionar({ nome, placa, entrada: new Date().toISOString() }, true);
+        }
     });
 })();
